@@ -1,11 +1,11 @@
-#모듈이름은 소문자 + 밑줄로 구성
-#Class는 첫 단어에 대문자로 구성
+import sys
 
 #node의 주소를 알아야 하므로 class로 선언해주는 것 같음.
 class Node():
     def __init__(self,data,next = None):
         self.data = data
         self.next = next
+
 
 class LinkedList():
     def __init__(self,data):
@@ -21,52 +21,6 @@ class LinkedList():
         while head.next:
             head = head.next
         head.next = new_node
-
-    #Linked List 원소출력
-    def print_list(self):
-        head = self.head
-        while head:
-            print(head.data)
-            head = head.next
-
-    #Linked List 특정 원소 뒤에 삽입
-    def insert(self,current_data,insert_data):
-        new_node = Node(insert_data)
-        head = self.head
-        while head.data != current_data:
-            head = head.next
-        temp = head.next
-        head.next = new_node
-        new_node.next = temp
-    
-    #Linked List 맨 앞 원소 삭제
-    def delete_front(self):
-        head = self.head
-        if head == '':
-            print('삭제할 원소가 없습니다.')
-            return False
-        if self.head.next:
-            self.head = self.head.next
-            del head
-        else:
-            self.head = ''
-
-    #Linked List 특정 원소 삭제
-    def pop(self,data):
-        head = self.head
-
-        if head == '':
-            print('삭제할 원소가 없습니다.')
-            return
-        
-        if head.data == data:
-            self.head = self.head.next
-            del head
-            return
-        while head.next.data != data:
-            head = head.next
-        temp = head.next
-        head.next = temp.next
 
     #Linked list 특정 원소 뒤에 원소추가  -> 특정 원소가 list 안에 없으면?
     def insert(self,stored_data,new_data):
@@ -108,16 +62,6 @@ class LinkedList():
 
 
 if __name__ == "__main__":
-    linkedList1 = LinkedList()
-    for i in range(1,4):
-        linkedList1.append(i)
-    linkedList1.print_list()
-    linkedList1.pop(2)
-    linkedList1.print_list()
-
-
-if __name__ ==  "__main__":
-    linkedList1 = LinkedList(0)
     linkedList1 = LinkedList(0)
     linkedList1.print_linked_list()
 
