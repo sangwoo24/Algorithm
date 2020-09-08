@@ -12,3 +12,4 @@ for i in range(len(s)):
         result_str.append(s[i])
 
 print(''.join(sorted(result_str)) + str(result_num))
+
