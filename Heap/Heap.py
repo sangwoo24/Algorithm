@@ -7,6 +7,7 @@
 #왼쪽 자식 노드 = 부모 * 2 
 #오른쪽 자식 노드 = 부모 * 2 + 1
 
+'''
 class Heap:
     def __init__(self,initial_data):
         self.heap = []
@@ -94,7 +95,6 @@ class Heap:
                     if self.heap[right_child_pop_index] > self.heap[pop_index]:
                         self.heap[pop_index],self.heap[right_child_pop_index] = self.heap[right_child_pop_index],self.heap[pop_index]
                         pop_index = right_child_pop_index
-
         return return_data
 
 
@@ -108,5 +108,84 @@ if __name__ == "__main__":
     heap1.insert(20)
     print(heap1.heap)
     print(heap1.pop())
+'''
+
+class Heap:
+    def __init__(self,data):
+        self.heap = []
+        self.heap.append(None)
+        self.heap.append(data)
+
+    def insert_data(self,data):
+        if len(self.heap) == 0:
+            self.heap.append(None)
+        self.heap.append(data)
+        insert_index = len(self.heap) - 1
+        parent_index = self.parent_index(insert_index)
+        
+        #새로 들어온 data의 부모가 있고, 부모가 data보다 작을 때 -> 위치 swap
+        while parent_index != 0 and self.heap[insert_index] > self.heap[parent_index]:
+            self.heap[insert_index],self.heap[parent_index] = self.heap[parent_index], self.heap[insert_index]
+            insert_index = parent_index
+            parent_index = self.parent_index(insert_index)
+
+    def get_max_heap(self):
+        return_data = self.heap[1]
+        self.heap[1] = self.heap[len(self.heap) - 1]
+        del self.heap[len(self.heap) - 1]
+        new_index = 1
 
 
+        if len(self.heap) <= 1:
+            return False
+        elif len(self.heap) == 2:
+            return_data = self.heap[1]
+            return return_data
+        else:
+            while True:
+                right = self.right_child_index(new_index)
+                left = self.left_child_index(new_index)
+                if right <= len(self.heap) - 1: #둘 다 존재
+                    if self.heap[left] > self.heap[right]:
+                        if self.heap[left] > self.heap[new_index]:
+                            self.heap[left], self.heap[new_index] = self.heap[new_index], self.heap[left]
+                            new_index = left
+                        else:
+                            break
+                    elif self.heap[left] < self.heap[right]:
+                        if self.heap[right] > self.heap[new_index]:
+                            self.heap[right], self.heap[new_index] = self.heap[new_index], self.heap[right]
+                            new_index = right
+                        else:
+                            break
+                    else:
+                        break
+                elif left == len(self.heap) - 1:
+                    if self.heap[left] > self.heap[new_index]:
+                        self.heap[left], self.heap[new_index] = self.heap[new_index], self.heap[left]
+                        new_index = left
+                    else:
+                        break
+                else:
+                    break
+                    
+        
+    def left_child_index(self,index):
+        return index * 2
+
+    def right_child_index(self,index):
+        return (index * 2) + 1  
+
+    def parent_index(self,index):
+        return index // 2
+
+if __name__ == "__main__":
+    heap1 = Heap(12)
+    heap1.insert_data(10)
+    heap1.insert_data(8)
+    heap1.insert_data(8)
+    heap1.insert_data(5)
+    heap1.insert_data(30)
+
+    heap1.get_max_heap()
+    print(heap1.heap)
