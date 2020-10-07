@@ -387,10 +387,11 @@ if __name__ == "__main__":
     - 삽입 O(N), 삭제 O(1)
   - 정렬되지 않은 배열의 경우(마지막 요소의 그냥 넣지만 삭제할 때 모든 원소와 우선순위를 따진다)
     - 삽입 O(1), 삭제 O(N)
-<br>
+
 - 힙(배열)
   - 삽입 / 삭제 : O(log N)  
 
+<br>
 <details>
 <summary><font size = "5em" color = "red">queue 모듈을 사용한 우선순위 큐 구현</font></summary>
 <div markdown = "1"> 
