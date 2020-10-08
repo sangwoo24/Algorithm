@@ -1,5 +1,7 @@
-from collections import deque
-s = deque([1,2,3,4,5])
+lst = [ [[100,1],[200,2],[300,3]],[[400,4]],[[500,5],[600,6]] ]
 
-print(s)
-
+for i in range(3):
+    n = 0
+    while n < 2 and n < len(lst[i]):
+        print(lst[i][n][0])
+        n += 1

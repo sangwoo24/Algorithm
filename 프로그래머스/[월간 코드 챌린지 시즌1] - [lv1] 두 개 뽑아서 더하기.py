@@ -15,4 +15,14 @@ def solution(numbers):
         else:
             ans.append(s[i])
     return ans
-#set형으로 변경하면 index 랜덤, -> 다시 오름차순으로 바꿔야함.
+# set형으로 변경하면 index 랜덤, -> 다시 오름차순으로 바꿔야함.
+
+
+from itertools import permutations, combinations
+def solution(num):
+    ans = set()
+    s = set(combinations(num,2))
+    for i in s:
+        ans.add(i[0] + i[1])
+    return (sorted(list(ans)))
+# 2주 후 다시짠 코드
