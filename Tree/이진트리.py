@@ -72,7 +72,7 @@ class Tree():
             else:
                 self.parent_node.right = self.current_node.left
         
-        #case2-2 삭제할 노드가 한대의 자식이 있을 경우(오른쪽 자식)
+        #case2-2 삭제할 노드가 한개의 자식이 있을 경우(오른쪽 자식)
         if self.current_node.left == None and self.current_node.right != None:
             if value < self.parent_node.value:
                 self.parent_node.left = self.current_node.right
@@ -84,7 +84,7 @@ class Tree():
         if self.current_node.left != None and self.current_node.right != None:
             if value < self.parent_node.value:
                 self.change_node = self.current_node.right
-                self.change_node_parent = self.change_node.right
+                self.change_node_parent = self.change_node.right # -> current_node_right
                 while self.change_node.left:
                     self.change_node_parent = self.change_node
                     self.change_node = self.change_node.left
@@ -116,10 +116,14 @@ class Tree():
                 self.change_node.right = self.current_node.right
         
 if __name__ == "__main__":
-    rootNode = Node(0)
+    rootNode = Node(8)
     tree1 = Tree(rootNode)
-    print(tree1.search(0))
+    tree1.insert(5)
+    tree1.insert(10)
+    tree1.insert(2)
+    tree1.insert(1)
+    tree1.insert(3)
+    tree1.insert(6)
+    tree1.insert(7)
     
-
-
-        
+    print(tree1.search(8))

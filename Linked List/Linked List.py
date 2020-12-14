@@ -48,7 +48,7 @@ class LinkedList():
             print("삭제할 원소가 없습니다")
             return False
         if head.data == data:
-            self.head = None
+            self.head = self.head.next
             del head
             return True
         
@@ -63,6 +63,8 @@ class LinkedList():
 
 if __name__ == "__main__":
     linkedList1 = LinkedList(0)
+    linkedList1.append(1)
+    linkedList1.delete(0)
     linkedList1.print_linked_list()
 
 # self.data = 0 , self.next = None -> self.data의 주소를 알아야함.

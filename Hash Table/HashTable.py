@@ -98,7 +98,7 @@ class HashMap():
                     self.table[index][1] = value
                     return
         else:
-            self.table[hash_address] = [index,value]
+            self.table[hash_address] = [index_key,value]
 
     #Linear Probing 기법은 충돌 시 address앞의 빈공간에 key와 value를 넣으므로 data를 읽을 때 hash_address이후의 data를 순회하면서 
     #자신이 원하는 key값이 있는지 확인해야한다.
@@ -111,9 +111,14 @@ class HashMap():
         if self.table[hash_address] != None:
             for index in range(hash_address,len(self.table)): 
                 if self.table[index] == None:
-                    return None:
+                    return None
                 elif self.table[index][0] == index_key:
                     return self.table[index][1]
         
         else:
             return None
+    
+    def printTable(self):
+        print(self.table)
+
+if __name__ == "__main__":

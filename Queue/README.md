@@ -259,8 +259,7 @@ if __name__ == "__main__":
 ### 장점
 - 배열과 다르게 추가, 삭제시 유연성이 생기기 때문에 배열보다 공간을 효율적으로 이용 가능하다.  
 - 배열에선 원소를 dequeue하게되면 원소들을 하나씩 밀어넣어줘야 하지만, Linked List는 삽입과 삭제가 바로 이루어짐.  
-### 단점
-- 크기에 제한이 없지만 속도가 느리다.
+
 
 <details>
 <summary><font size = "5em" color = "red">Linked Queue 구현</font></summary>
