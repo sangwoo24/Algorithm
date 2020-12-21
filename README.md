@@ -4,7 +4,7 @@
 ## 자료구조
 - ### [Stack](https://github.com/sangwoo24/Algorithm/tree/master/Stack)
 - ### [Queue](https://github.com/sangwoo24/Algorithm/tree/master/Queue)
-- ### [LinkedList]
+- ### [LinkedList](https://github.com/sangwoo24/Algorithm/tree/master/Linked%20List)
 - ### [Hash Table]
 - ### [Tree]
 - ### [Graph]
